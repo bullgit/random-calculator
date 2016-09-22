@@ -17,21 +17,26 @@ document.addEventListener('DOMContentLoaded', function () {
 			setFontSize('22');
 		}
 		if (length > 14) {
-			setFontSize('11');
-		}
-		if (length > 24) {
 			debugger;
 			clearOutput();
-			addToOutput('TILT!!!');
+			addToOutput('TILT!');
 			return;
 		}
 	};
 
+	var renderOutput = function (output) {
+		document.querySelectorAll('output')[0].textContent = output;
+		checkLength(output);
+	};
+
+	var getInput = function () {
+		return document.querySelectorAll('output')[0].textContent;
+	}
+
 	var addToOutput = function (value) {
-		var output = document.querySelectorAll('output')[0].textContent;
-		// console.info('output', output);
-		// console.info('typeof output', typeof output);
-		if (output === 'TILT!!!') {
+		var output = getInput();
+
+		if (output === 'TILT!') {
 			return;
 		}
 		if (output === '0' || outputIsResult === true) {
@@ -40,29 +45,21 @@ document.addEventListener('DOMContentLoaded', function () {
 		} else {
 			output = output + value;
 		}
-		document.querySelectorAll('output')[0].textContent = output;
-		checkLength(output);
+		renderOutput(output);
 	};
 
 	var clearOutput = function () {
-		document.querySelectorAll('output')[0].textContent = 0;
-		setFontSize('44');
+		renderOutput(0);
 		outputIsResult = false;
 	}
 
 	var changeSign = function () {
-		var input = document.querySelectorAll('output')[0].textContent;
-		var output = input * -1;
-		document.querySelectorAll('output')[0].textContent = output;
-		checkLength(output);
+		renderOutput(Number(getInput()) * -1);
 		outputIsResult = true;
 	};
 
 	var percentage = function () {
-		var input = document.querySelectorAll('output')[0].textContent;
-		var output = input / 100;
-		document.querySelectorAll('output')[0].textContent = output;
-		checkLength(output);
+		renderOutput(Number(getInput()) / 100);
 		outputIsResult = true;
 	};
 
