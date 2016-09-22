@@ -18,6 +18,9 @@ output {
 	text-align: right;
 	padding: 20px 10px 10px 10px;
 }
+output.small-text {
+	font-size: 22px;
+}
 
 .button-row:before,
 .button-row:after {

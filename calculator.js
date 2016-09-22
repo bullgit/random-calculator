@@ -4,17 +4,13 @@ document.addEventListener('DOMContentLoaded', function () {
 	var buttons = document.querySelectorAll('button');
 	var outputIsResult = false;
 
-	var setFontSize = function (size) {
-		document.querySelectorAll('output')[0].style.fontSize = size + 'px';
-	};
-
 	var checkLength = function (output) {
 		var length = String(output).length;
 		if (length <= 7) {
-			setFontSize('44');
+			document.querySelectorAll('output')[0].classList.remove('small-text');
 		}
 		if (length > 7) {
-			setFontSize('22');
+			document.querySelectorAll('output')[0].classList.add('small-text');
 		}
 		if (length > 14) {
 			debugger;
