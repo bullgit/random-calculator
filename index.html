@@ -11,38 +11,39 @@
 	<main>
 		<output>0</output>
 		<div class="button-row">
-			<button class="meta">C</button>
-			<button class="meta plus-minus">
+			<button type="button" data-action="clear" class="meta">C</button>
+			<button type="button" data-value="" class="meta plus-minus">
 				<span class="plus">+</span>
 				&frasl;
 				<span class="minus">&ndash;</span>
 			</button>
-			<button class="meta">%</button>
-			<button class="operator">÷</button>
+			<button type="button" data-value="" class="meta">%</button>
+			<button type="button" data-value="" class="operator">÷</button>
 		</div>
 		<div class="button-row">
-			<button>7</button>
-			<button>8</button>
-			<button>9</button>
-			<button class="operator">×</button>
+			<button type="button" data-value="7">7</button>
+			<button type="button" data-value="8">8</button>
+			<button type="button" data-value="9">9</button>
+			<button type="button" data-value="" class="operator">×</button>
 		</div>
 		<div class="button-row">
-			<button>4</button>
-			<button>5</button>
-			<button>6</button>
-			<button class="operator">&ndash;</button>
+			<button type="button" data-value="4">4</button>
+			<button type="button" data-value="5">5</button>
+			<button type="button" data-value="6">6</button>
+			<button type="button" data-value="" class="operator">&ndash;</button>
 		</div>
 		<div class="button-row">
-			<button>1</button>
-			<button>2</button>
-			<button>3</button>
-			<button class="operator">+</button>
+			<button type="button" data-value="1">1</button>
+			<button type="button" data-value="2">2</button>
+			<button type="button" data-value="3">3</button>
+			<button type="button" data-value="" class="operator">+</button>
 		</div>
 		<div class="button-row">
-			<button class="zero">0</button>
-			<button>.</button>
-			<button class="operator">=</button>
+			<button type="button" data-value="0" class="zero">0</button>
+			<button type="button" data-value="">.</button>
+			<button type="button" data-value="" class="operator">=</button>
 		</div>
 	</main>
+	<script src="calculator.js"></script>
 </body>
 </html>
