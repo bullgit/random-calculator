@@ -59,6 +59,18 @@ document.addEventListener('DOMContentLoaded', function () {
 		outputIsResult = true;
 	};
 
+	var makeFloat = function (e) {
+		if (getInput().includes('.')) {
+			e.target.blur();
+		} else {
+			if (getInput() === '0') {
+				addToOutput('0.');
+			} else {
+				addToOutput('.');
+			}
+		}
+	};
+
 	for (var i = buttons.length; i--;) {
 		buttons[i].addEventListener('click', function (e) {
 			console.info(this.dataset);
@@ -73,6 +85,9 @@ document.addEventListener('DOMContentLoaded', function () {
 			}
 			if (this.dataset.action === 'percent') {
 				percentage();
+			}
+			if (this.dataset.action === 'float') {
+				makeFloat(e);
 			}
 		});
 	}
