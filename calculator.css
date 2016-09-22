@@ -1,0 +1,90 @@
+main {
+	background: #8E8E8E;
+	border-radius: 5px;
+	width: 203px;
+	font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+	margin: 50px auto;
+	box-shadow: 1px 1px 6px 2px rgba(168,168,168,1);
+}
+
+output {
+	background: #4C4C4C;
+	border-radius: 5px 5px 0 0;
+	font-weight: 100;
+	color: #FFF;
+	display: block;
+	font-size: 44px;
+	line-height: 44px;
+	text-align: right;
+	padding: 20px 10px 10px 10px;
+}
+
+.button-row:before,
+.button-row:after {
+	content: ' ';
+	display: table;
+}
+.button-row:after {
+	clear: both;
+}
+
+button {
+	height: 50px;
+	width: 50px;
+	font-size: 22px;
+	font-weight: 300;
+	border: none;
+	margin: 0;
+	display: block;
+	float: left;
+	background: rgba(224, 224, 224, 1.00);
+	margin: 0 1px 1px 0;
+}
+button:last-child {
+	margin-right: 0;
+}
+.button-row:last-child button {
+	margin-bottom: 0;
+}
+.button-row:last-child button:first-child {
+	border-radius: 0 0 0 5px;
+}
+.button-row:last-child button:last-child {
+	border-radius: 0 0 5px 0;
+}
+button:focus {
+	outline: none;
+	background: rgba(212, 212, 212, 0.5);
+}
+button.meta {
+	background: rgba(214, 214, 214, 1);
+}
+button.meta:focus {
+	background: rgba(214, 214, 214, 0.5);
+}
+button.operator {
+	background: rgba(247, 147, 49, 1);
+	color: #FFF;
+	font-size: 30px;
+	font-weight: 100;
+}
+button.operator:focus {
+	background: rgba(190, 111, 33, 1);
+}
+button.plus-minus span {
+	font-size: 70%;
+	position: relative;
+}
+button.plus-minus .plus {
+	left: 5px;
+	top: -7px;
+}
+button.plus-minus .minus {
+	right: 4px;
+	top: 2px;
+}
+button.zero {
+	width: 101px;
+	text-align: left;
+	padding-left: 18px;
+}
