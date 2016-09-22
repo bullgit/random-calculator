@@ -42,14 +42,21 @@ document.addEventListener('DOMContentLoaded', function () {
 		setFontSize('44');
 	}
 
+	var changeSign = function () {
+		document.querySelectorAll('output')[0].textContent = Number(document.querySelectorAll('output')[0].textContent) * -1;
+	};
+
 	for (var i = buttons.length; i--;) {
 		buttons[i].addEventListener('click', function (e) {
 			console.info(this.dataset);
-			if (this.dataset.value) {
-				addToOutput(this.dataset.value);
+			if (this.dataset.number) {
+				addToOutput(this.dataset.number);
 			}
 			if (this.dataset.action === 'clear') {
 				clearOutput();
+			}
+			if (this.dataset.action === 'sign') {
+				changeSign();
 			}
 		});
 	}
