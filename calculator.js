@@ -79,14 +79,14 @@ document.addEventListener('DOMContentLoaded', function () {
 	};
 
 	var makeFloat = function (e) {
-		if (getInput().includes('.')) {
-			e.target.blur();
-		} else {
-			if (getInput() === '0') {
+		if (!getInput().includes('.') || storage.outputIsResult) {
+			if (getInput() === '0' || storage.lastClick !== 'number') {
 				addToOutput('0.');
 			} else {
 				addToOutput('.');
 			}
+		} else {
+			e.target.blur();
 		}
 	};
 
