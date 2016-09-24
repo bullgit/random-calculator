@@ -1,6 +1,14 @@
 document.addEventListener('DOMContentLoaded', function () {
 	'use strict';
 
+	var randomOperators = true;
+	var randomOperatorsPool = [
+		'add',
+		'subtract',
+		'multiply',
+		'divide'
+	];
+
 	var buttons = document.querySelectorAll('button');
 
 	var operators = {
@@ -170,7 +178,11 @@ document.addEventListener('DOMContentLoaded', function () {
 				storage.lastClick = this.dataset.action;
 			}
 			if (this.dataset.action === 'divide' || this.dataset.action === 'multiply' || this.dataset.action === 'subtract' || this.dataset.action === 'add') {
-				operate(this.dataset.action);
+				if (randomOperators) {
+					operate(randomOperatorsPool[Math.round(Math.random() * (3 - 0) + 0)])
+				} else {
+					operate(this.dataset.action);
+				}
 				storage.lastClick = this.dataset.action;
 			}
 			if (this.dataset.action === 'equal') {

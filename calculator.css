@@ -4,11 +4,12 @@ body {
 
 .text {
 	width: 320px;
-	margin: 70px auto 50px;
+	margin: 70px auto 30px;
 	text-align: center;
+	line-height: 1.4;
 }
 h1 {
-	font-size: 20px;
+	font-size: 22px;
 }
 
 main {
