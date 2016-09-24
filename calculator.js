@@ -11,8 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 	var storage= {
 		outputIsResult: false,
-		operand1: null,
-		operand2: null,
+		operands: [],
 		operator: null,
 		lastClick: null
 	};
@@ -60,16 +59,16 @@ document.addEventListener('DOMContentLoaded', function () {
 	var clearOutput = function () {
 		renderOutput(0);
 		storage.outputIsResult = false;
-		storage.operand1 = null;
-		storage.operand2 = null;
+		storage.operands = [];
 		storage.operator = null;
 		storage.lastClick = null;
 	}
 
 	var changeSign = function () {
 		renderOutput(Number(getInput()) * -1);
-		if (storage.operand1) {
-			storage.operand1 = Number(storage.operand1) * -1;
+		if (storage.lastClick !== 'number') {
+			storage.operands.pop();
+			storage.operands.push(Number(getInput()));
 		}
 		storage.outputIsResult = true;
 	};
@@ -92,23 +91,33 @@ document.addEventListener('DOMContentLoaded', function () {
 	};
 
 	var addition = function () {
-		console.info('addition');
+		if (storage.lastClick === 'add' || storage.lastClick === 'equal' || storage.lastClick === 'sign') {
+			return false;
+		}
+
 		storage.outputIsResult = true;
 		storage.operator = 'add';
-		if (storage.operand1) {
-			storage.operand2 = Number(getInput());
-			renderOutput(operators[storage.operator](storage.operand1, storage.operand2));
-			storage.operand1 = Number(getInput());
-		} else {
-			storage.operand1 = Number(getInput());
+		storage.operands.push(Number(getInput()));
+
+		if (storage.operands.length === 2) {
+			renderOutput(operators[storage.operator](storage.operands[0], storage.operands[1]));
+			storage.operands.push(Number(getInput()));
+			storage.operands.splice(0, 2);
 		}
 	};
 
 	var result = function () {
-		storage.operand2 = Number(getInput());
-		renderOutput(operators[storage.operator](storage.operand1, storage.operand2));
+		if (storage.operands.length === 0 || storage.lastClick === 'equal') {
+			console.info('return false');
+			return false;
+		}
+
 		storage.outputIsResult = true;
-		storage.operand1 = Number(getInput());
+		storage.operands.push(Number(getInput()));
+		renderOutput(operators[storage.operator](storage.operands[0], storage.operands[1]));
+		storage.operands.push(Number(getInput()));
+		storage.operands.splice(0, 2);
+
 	};
 
 	for (var i = buttons.length; i--;) {
@@ -120,35 +129,27 @@ document.addEventListener('DOMContentLoaded', function () {
 			}
 			if (this.dataset.action === 'clear') {
 				clearOutput();
-				storage.lastClick = 'action';
+				storage.lastClick = this.dataset.action;
 			}
 			if (this.dataset.action === 'sign') {
 				changeSign();
-				storage.lastClick = 'number';
+				storage.lastClick = this.dataset.action;
 			}
 			if (this.dataset.action === 'percent') {
 				percentage();
-				storage.lastClick = 'action';
+				storage.lastClick = this.dataset.action;
 			}
 			if (this.dataset.action === 'float') {
 				makeFloat(e);
-				storage.lastClick = 'action';
+				storage.lastClick = this.dataset.action;
 			}
 			if (this.dataset.action === 'add') {
-				if (storage.lastClick === 'action') {
-					e.target.blur();
-					return;
-				}
 				addition();
-				storage.lastClick = 'action';
+				storage.lastClick = this.dataset.action;
 			}
 			if (this.dataset.action === 'equal') {
-				if (storage.lastClick === 'action') {
-					e.target.blur();
-					return;
-				}
 				result();
-				storage.lastClick = 'action';
+				storage.lastClick = this.dataset.action;
 			}
 			e.target.blur();
 		});
