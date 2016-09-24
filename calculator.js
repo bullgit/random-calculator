@@ -6,6 +6,15 @@ document.addEventListener('DOMContentLoaded', function () {
 	var operators = {
 		add: function (a, b) {
 			return a + b;
+		},
+		subtract: function (a, b) {
+			return a - b;
+		},
+		multiply: function (a, b) {
+			return a * b;
+		},
+		divide: function (a, b) {
+			return a / b;
 		}
 	};
 
@@ -90,19 +99,28 @@ document.addEventListener('DOMContentLoaded', function () {
 		}
 	};
 
-	var addition = function () {
-		if (storage.lastClick === 'add' || storage.lastClick === 'equal' || storage.lastClick === 'sign') {
+	var operate = function (operator) {
+		if (storage.lastClick === 'add' ||
+				storage.lastClick === 'subtract' ||
+				storage.lastClick === 'multiply' ||
+				storage.lastClick === 'divide' ||
+				storage.lastClick === 'equal' ||
+				storage.lastClick === 'sign') {
+			storage.operator = operator;
 			return false;
 		}
-
+		console.info('operate with:', operator);
 		storage.outputIsResult = true;
-		storage.operator = 'add';
+		if (!storage.operator) {
+			storage.operator = operator;
+		}
 		storage.operands.push(Number(getInput()));
 
 		if (storage.operands.length === 2) {
 			renderOutput(operators[storage.operator](storage.operands[0], storage.operands[1]));
 			storage.operands.push(Number(getInput()));
 			storage.operands.splice(0, 2);
+			storage.operator = operator;
 		}
 	};
 
@@ -143,8 +161,8 @@ document.addEventListener('DOMContentLoaded', function () {
 				makeFloat(e);
 				storage.lastClick = this.dataset.action;
 			}
-			if (this.dataset.action === 'add') {
-				addition();
+			if (this.dataset.action === 'divide' || this.dataset.action === 'multiply' || this.dataset.action === 'subtract' || this.dataset.action === 'add') {
+				operate(this.dataset.action);
 				storage.lastClick = this.dataset.action;
 			}
 			if (this.dataset.action === 'equal') {
