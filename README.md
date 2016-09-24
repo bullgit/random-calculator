@@ -9,7 +9,7 @@ Need to calculate your monthly expenses? Want to know the sum of your pay raises
 
 We got something perfect for you :ok_hand:
 
-[Demo](https://bullg.it/random-generator/)
+[Demo](https://bullg.it/random-calculator/)
 
 
 # License
