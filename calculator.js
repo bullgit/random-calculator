@@ -17,13 +17,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
 	var checkLength = function (output) {
 		var length = String(output).length;
-		if (length <= 7) {
+		if (length <= 8) {
 			document.querySelectorAll('output')[0].classList.remove('small-text');
 		}
-		if (length > 7) {
+		if (length > 8) {
 			document.querySelectorAll('output')[0].classList.add('small-text');
 		}
-		if (length > 14) {
+		if (length > 17) {
 			debugger;
 			clearOutput();
 			addToOutput('TILT!');

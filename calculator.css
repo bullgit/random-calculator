@@ -1,7 +1,7 @@
 main {
 	background: #8E8E8E;
 	border-radius: 5px;
-	width: 203px;
+	width: 243px;
 	font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 	margin: 50px auto;
 	box-shadow: 1px 1px 6px 2px rgba(168,168,168,1);
@@ -33,7 +33,7 @@ output.small-text {
 
 button {
 	height: 50px;
-	width: 50px;
+	width: 60px;
 	font-size: 22px;
 	font-weight: 300;
 	border: none;
@@ -87,7 +87,7 @@ button.plus-minus .minus {
 	top: 2px;
 }
 button.zero {
-	width: 101px;
+	width: 121px;
 	text-align: left;
-	padding-left: 18px;
+	padding-left: 23px;
 }
