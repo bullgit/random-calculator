@@ -29,12 +29,16 @@ document.addEventListener('DOMContentLoaded', function () {
 		var length = String(output).length;
 		if (length <= 8) {
 			document.querySelectorAll('output')[0].classList.remove('small-text');
+			document.querySelectorAll('output')[0].classList.remove('extra-small-text');
 		}
 		if (length > 8) {
 			document.querySelectorAll('output')[0].classList.add('small-text');
 		}
 		if (length > 17) {
-			debugger;
+			document.querySelectorAll('output')[0].classList.remove('small-text')
+			document.querySelectorAll('output')[0].classList.add('extra-small-text');
+		}
+		if (length > 29) {
 			clearOutput();
 			addToOutput('TILT!');
 			return;
@@ -84,6 +88,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
 	var percentage = function () {
 		renderOutput(Number(getInput()) / 100);
+		if (storage.lastClick !== 'number') {
+			storage.operands.pop();
+			storage.operands.push(Number(getInput()));
+		}
 		storage.outputIsResult = true;
 	};
 
@@ -105,11 +113,12 @@ document.addEventListener('DOMContentLoaded', function () {
 				storage.lastClick === 'multiply' ||
 				storage.lastClick === 'divide' ||
 				storage.lastClick === 'equal' ||
+				storage.lastClick === 'percent' ||
 				storage.lastClick === 'sign') {
 			storage.operator = operator;
 			return false;
 		}
-		console.info('operate with:', operator);
+		// console.info('operate with:', operator);
 		storage.outputIsResult = true;
 		if (!storage.operator) {
 			storage.operator = operator;
@@ -126,7 +135,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 	var result = function () {
 		if (storage.operands.length === 0 || storage.lastClick === 'equal') {
-			console.info('return false');
 			return false;
 		}
 
@@ -140,7 +148,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 	for (var i = buttons.length; i--;) {
 		buttons[i].addEventListener('click', function (e) {
-			console.info(this.dataset);
+			// console.info(this.dataset);
 			if (this.dataset.number) {
 				addToOutput(this.dataset.number);
 				storage.lastClick = 'number';

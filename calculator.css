@@ -1,9 +1,21 @@
+body {
+	font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.text {
+	width: 320px;
+	margin: 70px auto 50px;
+	text-align: center;
+}
+h1 {
+	font-size: 20px;
+}
+
 main {
 	background: #8E8E8E;
 	border-radius: 5px;
 	width: 243px;
-	font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-	margin: 50px auto;
+	margin: 30px auto;
 	box-shadow: 1px 1px 6px 2px rgba(168,168,168,1);
 }
 
@@ -20,6 +32,9 @@ output {
 }
 output.small-text {
 	font-size: 22px;
+}
+output.extra-small-text {
+	font-size: 12px;
 }
 
 .button-row:before,
