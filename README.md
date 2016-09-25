@@ -5,7 +5,7 @@
 
 > Good luck with your calculations :see_no_evil:
 
-Need to calculate your monthly expenses? Want to know the sum of your pay raises of the last decade? Like to calculate your daily calories on your current diet?
+Need to report your monthly expenses? Want to know the sum of your pay raises of the last decade? Like to calculate your daily calories on your current diet?
 
 We got something perfect for you :ok_hand:
 
