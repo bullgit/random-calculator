@@ -36,15 +36,15 @@ document.addEventListener('DOMContentLoaded', function () {
 	var checkLength = function (output) {
 		var length = String(output).length;
 		if (length <= 8) {
-			document.querySelectorAll('output')[0].classList.remove('small-text');
-			document.querySelectorAll('output')[0].classList.remove('extra-small-text');
+			document.querySelector('output').classList.remove('small-text');
+			document.querySelector('output').classList.remove('extra-small-text');
 		}
 		if (length > 8) {
-			document.querySelectorAll('output')[0].classList.add('small-text');
+			document.querySelector('output').classList.add('small-text');
 		}
 		if (length > 17) {
-			document.querySelectorAll('output')[0].classList.remove('small-text')
-			document.querySelectorAll('output')[0].classList.add('extra-small-text');
+			document.querySelector('output').classList.remove('small-text')
+			document.querySelector('output').classList.add('extra-small-text');
 		}
 		if (length > 29) {
 			clearOutput();
@@ -54,12 +54,12 @@ document.addEventListener('DOMContentLoaded', function () {
 	};
 
 	var renderOutput = function (output) {
-		document.querySelectorAll('output')[0].textContent = output;
+		document.querySelector('output').textContent = output;
 		checkLength(output);
 	};
 
 	var getInput = function () {
-		return document.querySelectorAll('output')[0].textContent;
+		return document.querySelector('output').textContent;
 	}
 
 	var addToOutput = function (value) {
