@@ -1,5 +1,5 @@
 body {
-	font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+	font-family: -apple-system, BlinkMacSystemFont, system, sans-serif;
 }
 
 .text {
@@ -84,7 +84,6 @@ button.meta:focus {
 button.operator {
 	background: rgba(247, 147, 49, 1);
 	color: #FFF;
-	font-size: 30px;
 	font-weight: 100;
 }
 button.operator:focus {
