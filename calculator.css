@@ -71,14 +71,14 @@ button:last-child {
 .button-row:last-child button:last-child {
 	border-radius: 0 0 5px 0;
 }
-button:focus {
+button:focus,button:active {
 	outline: none;
 	background: rgba(212, 212, 212, 0.5);
 }
 button.meta {
 	background: rgba(214, 214, 214, 1);
 }
-button.meta:focus {
+button.meta:focus, button.meta:active {
 	background: rgba(214, 214, 214, 0.5);
 }
 button.operator {
@@ -87,7 +87,7 @@ button.operator {
 	font-size: 30px;
 	font-weight: 100;
 }
-button.operator:focus {
+button.operator:focus, button.operator:active {
 	background: rgba(190, 111, 33, 1);
 }
 button.plus-minus span {
