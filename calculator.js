@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function () {
+(function () {
 	'use strict';
 
 	var randomOperators = true;
@@ -154,43 +154,133 @@ document.addEventListener('DOMContentLoaded', function () {
 
 	};
 
-	for (var i = buttons.length; i--;) {
-		buttons[i].addEventListener('click', function (e) {
-			// console.info(this.dataset);
-			if (this.dataset.number) {
-				addToOutput(this.dataset.number);
-				storage.lastClick = 'number';
-			}
-			if (this.dataset.action === 'clear') {
-				clearOutput();
-				storage.lastClick = this.dataset.action;
-			}
-			if (this.dataset.action === 'sign') {
-				changeSign();
-				storage.lastClick = this.dataset.action;
-			}
-			if (this.dataset.action === 'percent') {
-				percentage();
-				storage.lastClick = this.dataset.action;
-			}
-			if (this.dataset.action === 'float') {
-				makeFloat(e);
-				storage.lastClick = this.dataset.action;
-			}
-			if (this.dataset.action === 'divide' || this.dataset.action === 'multiply' || this.dataset.action === 'subtract' || this.dataset.action === 'add') {
-				if (randomOperators) {
-					operate(randomOperatorsPool[Math.round(Math.random() * (3 - 0) + 0)])
-				} else {
-					operate(this.dataset.action);
-				}
-				storage.lastClick = this.dataset.action;
-			}
-			if (this.dataset.action === 'equal') {
-				result();
-				storage.lastClick = this.dataset.action;
-			}
-			e.target.blur();
-		});
-	}
+	var registerEvents = function () {
 
-});
+		// Register click events on buttons
+		for (var i = buttons.length; i--;) {
+			buttons[i].addEventListener('click', function (e) {
+				// console.info(this.dataset);
+				if (this.dataset.number) {
+					addToOutput(this.dataset.number);
+					storage.lastClick = 'number';
+				}
+				if (this.dataset.action === 'clear') {
+					clearOutput();
+					storage.lastClick = this.dataset.action;
+				}
+				if (this.dataset.action === 'sign') {
+					changeSign();
+					storage.lastClick = this.dataset.action;
+				}
+				if (this.dataset.action === 'percent') {
+					percentage();
+					storage.lastClick = this.dataset.action;
+				}
+				if (this.dataset.action === 'float') {
+					makeFloat(e);
+					storage.lastClick = this.dataset.action;
+				}
+				if (this.dataset.action === 'divide' || this.dataset.action === 'multiply' || this.dataset.action === 'subtract' || this.dataset.action === 'add') {
+					if (randomOperators) {
+						operate(randomOperatorsPool[Math.round(Math.random() * (3 - 0) + 0)])
+					} else {
+						operate(this.dataset.action);
+					}
+					storage.lastClick = this.dataset.action;
+				}
+				if (this.dataset.action === 'equal') {
+					result();
+					storage.lastClick = this.dataset.action;
+				}
+				setTimeout(function(){
+					e.target.blur();
+				}, 50);
+
+			});
+		}
+
+		// Register key event
+		document.addEventListener('keydown', function (e) {
+			switch (e.key) {
+				case '1':
+					document.querySelector('button[data-number="1"]').focus();
+					document.querySelector('button[data-number="1"]').click();
+					break;
+				case '2':
+					document.querySelector('button[data-number="2"]').focus();
+					document.querySelector('button[data-number="2"]').click();
+					break;
+				case '3':
+					document.querySelector('button[data-number="3"]').focus();
+					document.querySelector('button[data-number="3"]').click();
+					break;
+				case '4':
+					document.querySelector('button[data-number="4"]').focus();
+					document.querySelector('button[data-number="4"]').click();
+					break;
+				case '5':
+					document.querySelector('button[data-number="5"]').focus();
+					document.querySelector('button[data-number="5"]').click();
+					break;
+				case '6':
+					document.querySelector('button[data-number="6"]').focus();
+					document.querySelector('button[data-number="6"]').click();
+					break;
+				case '7':
+					document.querySelector('button[data-number="7"]').focus();
+					document.querySelector('button[data-number="7"]').click();
+					break;
+				case '8':
+					document.querySelector('button[data-number="8"]').focus();
+					document.querySelector('button[data-number="8"]').click();
+					break;
+				case '9':
+					document.querySelector('button[data-number="9"]').focus();
+					document.querySelector('button[data-number="9"]').click();
+					break;
+				case '0':
+					document.querySelector('button[data-number="0"]').focus();
+					document.querySelector('button[data-number="0"]').click();
+					break;
+				case 'c':
+					document.querySelector('button[data-action="clear"]').focus();
+					document.querySelector('button[data-action="clear"]').click();
+					break;
+				case '/':
+					document.querySelector('button[data-action="divide"]').focus();
+					document.querySelector('button[data-action="divide"]').click();
+					break;
+				case 'Enter':
+					document.querySelector('button[data-action="equal"]').focus();
+					document.querySelector('button[data-action="equal"]').click();
+					break;
+				case '%':
+					document.querySelector('button[data-action="percent"]').focus();
+					document.querySelector('button[data-action="percent"]').click();
+					break;
+				case '*':
+					document.querySelector('button[data-action="multiply"]').focus();
+					document.querySelector('button[data-action="multiply"]').click();
+					break;
+				case '-':
+					document.querySelector('button[data-action="subtract"]').focus();
+					document.querySelector('button[data-action="subtract"]').click();
+					break;
+				case '+':
+					document.querySelector('button[data-action="add"]').focus();
+					document.querySelector('button[data-action="add"]').click();
+					break;
+				case '.':
+					document.querySelector('button[data-action="float"]').focus();
+					document.querySelector('button[data-action="float"]').click();
+					break;
+			}
+		});
+	};
+
+	document.addEventListener('DOMContentLoaded', function () {
+		registerEvents();
+	});
+
+}());
+
