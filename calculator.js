@@ -201,6 +201,7 @@
 
 		// Register key event
 		document.addEventListener('keydown', function (e) {
+			// console.log('keyCode', e);
 			switch (e.key) {
 				case '1':
 					document.querySelector('button[data-number="1"]').focus();
@@ -246,11 +247,19 @@
 					document.querySelector('button[data-action="clear"]').focus();
 					document.querySelector('button[data-action="clear"]').click();
 					break;
+				case 'Clear':
+					document.querySelector('button[data-action="clear"]').focus();
+					document.querySelector('button[data-action="clear"]').click();
+					break;
 				case '/':
 					document.querySelector('button[data-action="divide"]').focus();
 					document.querySelector('button[data-action="divide"]').click();
 					break;
 				case 'Enter':
+					document.querySelector('button[data-action="equal"]').focus();
+					document.querySelector('button[data-action="equal"]').click();
+					break;
+				case '=':
 					document.querySelector('button[data-action="equal"]').focus();
 					document.querySelector('button[data-action="equal"]').click();
 					break;
@@ -271,6 +280,10 @@
 					document.querySelector('button[data-action="add"]').click();
 					break;
 				case '.':
+					document.querySelector('button[data-action="float"]').focus();
+					document.querySelector('button[data-action="float"]').click();
+					break;
+				case ',':
 					document.querySelector('button[data-action="float"]').focus();
 					document.querySelector('button[data-action="float"]').click();
 					break;
