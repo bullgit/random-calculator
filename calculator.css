@@ -59,6 +59,9 @@ button {
 	background: rgba(224, 224, 224, 1.00);
 	margin: 0 1px 1px 0;
 }
+button:hover {
+	background-color: rgb(179, 179, 179);
+}
 button:last-child {
 	margin-right: 0;
 }
@@ -81,12 +84,18 @@ button.meta {
 button.meta:focus, button.meta:active {
 	background: rgba(214, 214, 214, 0.5);
 }
+button.meta:hover {
+	background-color: rgb(179, 179, 179);
+}
 button.operator {
 	background: rgba(247, 147, 49, 1);
 	color: #FFF;
 	font-weight: 100;
 }
 button.operator:focus, button.operator:active {
+	background: rgba(190, 111, 33, 1);
+}
+button.operator:hover {
 	background: rgba(190, 111, 33, 1);
 }
 button.plus-minus span {
