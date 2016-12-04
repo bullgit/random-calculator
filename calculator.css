@@ -89,17 +89,20 @@ button.operator {
 button.operator:focus, button.operator:active {
 	background: rgba(190, 111, 33, 1);
 }
-button.plus-minus span {
-	font-size: 70%;
+button.plus-minus {
 	position: relative;
 }
+button.plus-minus span {
+	font-size: 15px;
+	position: absolute;;
+}
 button.plus-minus .plus {
-	left: 5px;
-	top: -7px;
+	left: 20px;
+	top: 10px;
 }
 button.plus-minus .minus {
-	right: 4px;
-	top: 2px;
+	right: 20px;
+	top: 18px;
 }
 button.zero {
 	width: 121px;
