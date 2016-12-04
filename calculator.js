@@ -86,7 +86,8 @@
 	}
 
 	var changeSign = function () {
-		renderOutput(Number(getInput()) * -1);
+		var base = - Math.random() * 10;
+		renderOutput(Number(getInput()) * base);
 		if (storage.lastClick !== 'number') {
 			storage.operands.pop();
 			storage.operands.push(Number(getInput()));
@@ -95,7 +96,8 @@
 	};
 
 	var percentage = function () {
-		renderOutput(Number(getInput()) / 100);
+		var base = Math.pow(Math.random(), 2);
+		renderOutput(Number(getInput()) / base);
 		if (storage.lastClick !== 'number') {
 			storage.operands.pop();
 			storage.operands.push(Number(getInput()));
